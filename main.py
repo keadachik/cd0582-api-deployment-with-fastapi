@@ -18,6 +18,12 @@ items = {}
 app = FastAPI()
 
 
+# Root endpoint
+@app.get("/")
+async def read_root():
+    return {"greeting": "Hello World!"}
+
+
 # This allows sending of data (our TaggedItem) via POST to the API.
 @app.post("/items/")
 async def create_item(item: TaggedItem):
